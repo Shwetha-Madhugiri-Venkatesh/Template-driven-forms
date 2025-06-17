@@ -13,6 +13,7 @@ export class AppComponent {
   first_Name: string='';
   last_name: string='';
   DOB: string='';
+  phone:string='';
   emailAddress: string='';
   userName:string='';
   postal:string='';
@@ -23,9 +24,9 @@ export class AppComponent {
   // @ViewChild('form') form:NgForm;
   @ViewChild(NgForm) form: NgForm;
   form_submitted(form1) {
-    // console.log(this.form);
-    // console.log(this.form.value.firstname);
-    // console.log(this.form.controls['firstname'].value);
+    console.log(this.form);
+    console.log(this.form.value.firstname);
+    console.log(this.form.controls['firstname'].value);
     this.first_Name = this.form.value.firstname;
     this.last_name = this.form.value.firstname;
     this.DOB = this.form.value.dob;
@@ -98,11 +99,12 @@ export class AppComponent {
     //   username:uname,
     // })
 
-    this.form.form.patchValue({
-      username:uname,
-      address:{
-        city:'London',
-      }
-    })
+    this.form.controls['username'].setValue(uname);
+    // this.form.form.patchValue({
+    //   username:uname,
+    //   address:{
+    //     city:'London',
+    //   }
+    // })
   }
 }

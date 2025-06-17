@@ -5,37 +5,37 @@
   <form class="form" (ngSubmit)="form_submitted(form1)" #form1="ngForm">
     <div class="column">
       <div class="input-box">
-        <input type="text" placeholder="First Name" name="firstname" ngModel required #fname = 'ngModel'/>
+        <input type="text" placeholder="First Name" name="firstname" [(ngModel)]="first_Name" required #fname = 'ngModel'/>
         <small *ngIf="fname.touched && fname.invalid">*this field is required!</small>
         <span *ngIf="first_Name">you have entered:{{first_Name}}</span>
       </div> 
 
       <div class="input-box">
-        <input type="text" placeholder="Last Name" name="lastname" ngModel required #lname="ngModel"/>
+        <input type="text" placeholder="Last Name" name="lastname" [(ngModel)]="last_name" required #lname="ngModel"/>
         <small *ngIf="lname.touched && lname.invalid">*this field is required!</small>
         <span *ngIf="last_name">you have entered:_{{last_name}}</span>
       </div>
     </div>    
 
     <div class="input-box">
-      <input type="text" placeholder="Email" name="email" ngModel required email #email="ngModel"/>
+      <input type="text" placeholder="Email" name="email" [(ngModel)]="emailAddress" required email #email="ngModel"/>
       <small *ngIf="email.touched && email.invalid">*this field is required!</small>
         <span *ngIf="emailAddress">you have entered:{{emailAddress}}</span>
     </div>
 
     <div class="column">
       <div class="input-box">
-        <input type="number" placeholder="Phone Number" name="phone" ngModel/>
+        <input type="number" placeholder="Phone Number" name="phone" [(ngModel)]="phone"/>
       </div>
       <div class="input-box">
-        <input type="date" placeholder="Date of Birth" name="dob" ngModel/>
+        <input type="date" placeholder="Date of Birth" name="dob" [(ngModel)]="DOB"/>
       </div>
     </div>
 
     <div class="input-box">
       <input type="text" placeholder="username" name="username" ngModel #uname ='ngModel'/>
        <small *ngIf="uname.touched&&uname.invalid">*this field is required!</small>
-      <button class="btn-gen-username" [disabled]="!first_Name||!last_name||!DOB" (click)="generate_uname()">
+      <button class="btn-gen-username"  (click)="generate_uname()">
         Create a Username
       </button>
     </div>
